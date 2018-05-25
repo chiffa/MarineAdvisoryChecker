@@ -38,6 +38,17 @@ def check_loop():
         sleep(1800)
 
 
+# general logic - if the adivsory is detected:
+# parse start/stop date/time
+# add to calendar
+# if alert was already there, update it
+#   start time in the past - leave it
+#   start time in the future - adjust it
+#   end time - adjust it
+# if alert is not there
+#   insert it onto the calendar.
+
+
 if __name__ == "__main__":
     # print pull_advisory('anz538')
     # print pull_advisory('anz531')

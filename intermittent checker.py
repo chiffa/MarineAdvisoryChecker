@@ -31,7 +31,7 @@ def check_loop():
 
     for i in range(0, 1000):
 
-        with open('data.log', 'wa') as sink:
+        with open('data.log', 'a') as sink:
             writer = csv_writer(sink)
             writer.writerow(pull_advisory('anz538'))
 

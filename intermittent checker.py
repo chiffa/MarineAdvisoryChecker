@@ -13,16 +13,18 @@ def pull_advisory(marine_zone):
     prediction = soup.find('div', attrs={"id": "content"})
 
     forecast_datetime = None
-    advisory = None
+    advisory = []
 
     for line in prediction.text.splitlines():
 
-        if "EDT" in line:
+        if "EDT" in line and 'ADVISORY' not in line:
             line = line.strip()
             forecast_datetime = datetime.strptime(line, "%I%M %p %Z %a %b %d %Y")
 
         if "ADVISORY" in line:
-            advisory = line.strip()
+            advisory.append(line.strip())
+
+        advisory = '\n'.join(advisory)
 
     return datetime.now(), forecast_datetime, advisory
 
@@ -47,6 +49,10 @@ def check_loop():
 #   end time - adjust it
 # if alert is not there
 #   insert it onto the calendar.
+
+###############################################
+# Simpler logic:
+#
 
 
 if __name__ == "__main__":

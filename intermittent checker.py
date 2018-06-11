@@ -24,9 +24,7 @@ def pull_advisory(marine_zone):
         if "ADVISORY" in line:
             advisory.append(line.strip())
 
-        advisory = '\n'.join(advisory)
-
-    return datetime.now(), forecast_datetime, advisory
+    return datetime.now(), forecast_datetime, '\n'.join(advisory)
 
 
 def check_loop():
